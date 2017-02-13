@@ -409,4 +409,37 @@ tryAcceptComposition r = runMaybeT $ do
 		</div>
 		<div class="comment-date">2017-02-11 22:42 UTC</div>
 	</div>
+  
+  	<div class="comment">
+  		<div class="comment-author"><a href="https://github.com/Overlord-Zurg/">Ben Lappin</a></div>
+  		<div class="comment-content">
+			<p>Hey Mark, thanks for writing, I love your explanations and viewpoints.</p>
+			<p>There's a particular type of situation I've been trying to think about for some time, and it's something you've also touched on (including here), but I still haven't come up with a satisfactory answer, nor have I been able to glean one from your writings. So I will try to describe the situation and see what you are able to say.</p>
+			<p>My question, as best I can express it, is: <strong>How should conditionally evaluated logic be expressed in a functional manner?</strong></p>
+			<p>Take, for example, the following F# function written as naively as I can:
+  			<pre><code>type Union =
+    | I of int
+    | F of float
+
+let getResultNaive (cheapFunction: unit->Union) (expensiveIntFunction: int->string) (expensiveFloatFunction: float->string) =
+    match cheapFunction() with
+    | I i -> expensiveIntFunction i
+    | F f -> expensiveFloatFunction f</code></pre>
+			<p>The idea is that the function will need to perform only one of two expensive operations, but neither (a) which one that is nor (b) the value of the parameter is known at call time.</p>
+			<p>To represent this logic purely, I could do this:</p>
+			<pre><code>let getResultPure (cheapResult: Union) (expensiveResult1: string) (expensiveResult2: string) =
+    match cheapResult with
+    | I _ -> expensiveResult1
+    | F _ -> expensiveResult2</code></pre>
+			<pre><code></code>...but besides the fact that </pre>
+			<pre><code></code></pre>
+			<pre><code></code></pre>
+			<pre><code></code></pre>
+			<pre><code></code></pre>
+  		</div>
+  		<div class="comment-date">2017-02-06 16:28 UTC</div>
+  	</div>
+
+
+
 </div>
